@@ -32,15 +32,19 @@ def Parpivot(A,B,k):
     return A, B
 
 def MatrixMultiply(M,A):
-    B=[[0, 0, 0, 0], [0 ,0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+    B=[]
+    for i in range(len(M)):
+        row =[]
+        for j in range(len(A[0])):
+            row.append(0)
+        B.append(row)
 
     for x in range(len(M)):
         for y in range(len(A[0])):
             for z in range(len(M[0])):
                 B[x][y] += M[x][z] * A[z][y]
-
-    inv = print("The matrix is", B)
     return B
+
 
 def fwrdsub(A , B):
     global Y
