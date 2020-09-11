@@ -1,3 +1,4 @@
+#For functions of LU decomposition , forward-backward substitution and partial pivot
 from Functions import *
 
 #The forward substition for all columns of C
