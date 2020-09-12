@@ -18,12 +18,7 @@ def Backwardeq(A,M):
 def main():
     # reading the matrix A from a external file
     f1 = open("Q2matrix.txt", "r")
-    a = f1.read()
-    a1 = [item.split(' ') for item in a.split('\n')]
-    A = [[0, 0, 0, 0], [0 ,0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-    for i in range(4):
-        for k in range(4):
-            A[i][k] = float(a1[i][k])
+    A = readfile(f1)
     print("A matrix is:", A)
     #Identity matrix
     C = [[1, 0, 0, 0], [0 ,1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
@@ -34,10 +29,9 @@ def main():
     for k in range(4):
         determinant *= A[k][k]
     print("The determinant is :",determinant)
-    #Forward and backward substitution
+
     Forwardeq(A,C)
     Backwardeq(A,M)
-    
     #The transverse gives the inverse matrix
     Iv = [[N[j][i] for j in range(4)] for i in range(4)]
 
@@ -46,7 +40,7 @@ def main():
         for j in range(4):
             Iv[i][j]= round(Iv[i][j],3)
     print("The inverse matrix is ",Iv)
- 
+
 main()
 
 # A matrix is: [[0.0, 2.0, 8.0, 6.0], [0.0, 0.0, 1.0, 2.0], [0.0, 1.0, 0.0, 1.0], [3.0, 7.0, 1.0, 0.0]]
