@@ -46,21 +46,11 @@ def bkwdsub(A , B):
 def main():
     # reading the equations from a external file
     r = open("Amatrix.txt", "r")
-    a = r.read()
-    a1 = [item.split(' ') for item in a.split('\n')]
-    A = [[0, 0, 0, 0], [0 ,0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-    for i in range(4):
-        for j in range(4):
-            A[i][j] = float(a1[i][j])
+    A = readfile(r)
     print("A matrix is:", A)
-    # The RHS value of the equations is imported from external file
-    C = [0,0,0,0]
+    # The RHS value of the equations is imported from external file and read
     p = open("Cmatrix.txt", "r")
-    b = p.read()
-    b1 = (b.split(' '))
-    for i in range(4):
-        C[i] = float(b1[i])
-
+    C = read1d(p)
     #LU decomposition
     A = LUdecomp(A,C)
     #forward substitution
