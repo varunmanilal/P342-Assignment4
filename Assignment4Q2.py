@@ -21,11 +21,9 @@ def main():
     a = f1.read()
     a1 = [item.split(' ') for item in a.split('\n')]
     A = [[0, 0, 0, 0], [0 ,0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-    D = [[0, 0, 0, 0], [0 ,0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
     for i in range(4):
         for k in range(4):
             A[i][k] = float(a1[i][k])
-            D[i][k] = float(a1[i][k])
     print("A matrix is:", A)
     #Identity matrix
     C = [[1, 0, 0, 0], [0 ,1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
@@ -48,18 +46,10 @@ def main():
         for j in range(4):
             Iv[i][j]= round(Iv[i][j],3)
     print("The inverse matrix is ",Iv)
-    
-    #The multiplication of A and Ainv =I after rounding off.
-    E = MatrixMultiply(D,Iv)
-    for i in range(4):
-        for j in range(4):
-            E[i][j]= round(E[i][j],2)
-    print("The product of A and Ainv is ",E)
-
+ 
 main()
 
 # A matrix is: [[0.0, 2.0, 8.0, 6.0], [0.0, 0.0, 1.0, 2.0], [0.0, 1.0, 0.0, 1.0], [3.0, 7.0, 1.0, 0.0]]
 # The combined L-U matrix [[3.0, 7.0, 1.0, 0.0], [0.0, 1.0, 0.0, 1.0], [0.0, 0.0, 1.0, 2.0], [0.0, 2.0, 8.0, -12.0]]
 # The determinant is : -36.0
 # The inverse matrix is  [[-0.25, 1.667, -1.833, 0.333], [0.083, -0.667, 0.833, 0.0], [0.167, -0.333, -0.333, 0.0], [-0.083, 0.667, 0.167, 0.0]]
-#The product of A and Ainv is  [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [-0.0, -0.0, -0.0, 1.0]]
