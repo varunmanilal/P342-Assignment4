@@ -5,6 +5,8 @@
 # 4.Forward substitution
 # 5.Reverse substitution
 # 6.LU decomposition
+# 7.Reading Files
+# 8.Reading 1D files
 
 def GaussJordan(A, B):
     # the pivot row
@@ -44,7 +46,6 @@ def MatrixMultiply(M,A):
             for z in range(len(M[0])):
                 B[x][y] += M[x][z] * A[z][y]
     return B
-
 
 def fwrdsub(A , B):
     global Y
@@ -89,3 +90,27 @@ def LUdecomp(A,C):
 
     print("The combined L-U matrix",A)
     return A
+
+def readfile(f1):
+    a = f1.read()
+    a1 = [item.split(' ') for item in a.split('\n')]
+    A = []
+    for i in range(len(a1)):
+        row = []
+        for j in range(len(a1[0])):
+            row.append(0)
+        A.append(row)
+    for i in range(len(a1)):
+        for k in range(len(a1[0])):
+            A[i][k] = float(a1[i][k])
+    return A
+
+def read1d(p):
+    b = p.read()
+    b1 = (b.split(' '))
+    C=[]
+    for i in range(len(b1)):
+        C.append(0)
+    for i in range(4):
+        C[i] = float(b1[i])
+    return C
